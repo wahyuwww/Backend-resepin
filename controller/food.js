@@ -62,7 +62,7 @@ const foodController = {
       const gambarvid = req.files.video.map((file) => {
         return `http://${req.get('host')}/video/${file.filename}`
       })
-      const gambars = req.file.path
+      const gambars = req.files.image[0].path
       // console.log(req.file)
       const ress = await cloudinary.uploader.upload(gambars)
       // const gambar = JSON.stringify(gambarvid)
