@@ -5,7 +5,7 @@ const path = require('path')
 // const cloudinary = require('../helper/cloudinary')
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './public/video')
+    cb(null, '../public/video')
   },
   filename: (req, file, cb) => {
     const nameFormat = `${Date.now()}-${file.fieldname}${path.extname(
