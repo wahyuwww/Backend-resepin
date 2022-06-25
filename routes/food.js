@@ -1,7 +1,7 @@
 const express = require('express')
 const Router = express.Router()
 const { foodController } = require('../controller/food')
-const { uploadMultiple } = require('../middlewares/uploadFile')
+const uploadMultiple = require('../middlewares/uploadFile')
 // const upload = require('../middlewares/uploadFiles')
 
 Router.get('/', foodController.getFoods)
