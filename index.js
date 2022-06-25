@@ -7,7 +7,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const path = require('path')
 const Router = require('./routes/index')
-
+const { activ } = require('./controller/auth')
 const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
@@ -21,6 +21,7 @@ app.use(xss())
 app.disable('x-powered-by')
 
 app.use('/', Router)
+app.use('http://localhost:5000/auth/activasi/:token', activ)
 app.use('/img', express.static(path.join(__dirname, './public/images')))
 app.use('/video', express.static(path.join(__dirname, './public/video')))
 

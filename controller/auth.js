@@ -11,6 +11,7 @@ const {
 } = require('../models/auth')
 const commonHelper = require('../helper/common')
 const authHelper = require('../helper/authEmployee')
+const { sendMail } = require('../helper/sendEmail')
 
 const register = async (req, res, next) => {
   try {
@@ -30,6 +31,7 @@ const register = async (req, res, next) => {
       phonenumber,
       password: passwordHash
     }
+    sendMail({ email, fullname })
     await create(data)
     commonHelper.response(res, data, 'User berhasil register', 200)
   } catch (error) {
@@ -59,17 +61,7 @@ const activ = async (req, res, next) => {
     if (decoded.status === '1') {
       return res.json({ message: 'akun anda sudah terverifikasi' })
     }
-    const result = {
-      email: decoded.email,
-      name: decoded.name
-      // tokenNew: newRefreshToken
-    }
-    commonHelper.response(
-      res,
-      result,
-      'akun anda sudah verifikasi sebagai employee, silahkan login',
-      200
-    )
+    res.redirect('https://resepin-aja.vercel.app/login')
   } catch (error) {
     console.log(error)
     next(createError)
@@ -89,6 +81,11 @@ const login = async (req, res, next) => {
         403
       )
     }
+    // if (user.active === '0') {
+    //   return res.json({
+    //     message: ' anda belum verifikasi'
+    //   })
+    // }
 
     const validPassword = bcrypt.compareSync(password, user.password)
     if (!validPassword) {
@@ -104,12 +101,20 @@ const login = async (req, res, next) => {
     const payload = {
       fullname: user.fullname,
       email: user.email,
-      id: user.iduser
+      id: user.iduser,
+      status: user.active
     }
 
     user.token = authHelper.generateToken(payload)
     user.refreshToken = authHelper.generateRefreshToken(payload)
     // console.log(user)
+    res.cookie('token', user.token, {
+      httpOnly: true,
+      maxAge: 60 * 1000 * 60 * 12,
+      secure: process.env.NODE_ENV !== 'Development',
+      path: '/',
+      sameSite: 'strict'
+    })
     return commonHelper.response(res, user, 'anda berhasil login', 201)
   } catch (error) {
     console.log(error)

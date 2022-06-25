@@ -21,12 +21,13 @@ const create = ({
   fullname,
   email,
   phonenumber,
-  password
+  password,
+  active = 0
 }) => {
   return new Promise((resolve, reject) => {
     pool.query(
-      'INSERT INTO users (iduser, fullname, email, phonenumber, password)VALUES($1, $2, $3, $4, $5)',
-      [iduser, fullname, email, phonenumber, password],
+      'INSERT INTO users (iduser, fullname, email, phonenumber, password, active)VALUES($1, $2, $3, $4, $5,$6)',
+      [iduser, fullname, email, phonenumber, password, active],
       (err, result) => {
         if (!err) {
           resolve(result)
@@ -55,7 +56,7 @@ const getprofil = (iduser) => {
 const activasi = ({ active = '1', email }) => {
   return new Promise((resolve, reject) => {
     pool.query(
-      'UPDATE employee SET active = $1 where email = $2',
+      'UPDATE users SET active = $1 where email = $2',
       [active, email],
       (err, result) => {
         if (!err) {
