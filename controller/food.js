@@ -66,7 +66,7 @@ const foodController = {
       // console.log(req.file)
       const ress = await cloudinary.uploader.upload(gambars)
       // const gambar = JSON.stringify(gambarvid)
-      console.log(typeof gambarvid)
+      console.log(gambarvid)
       const idfood = req.params.id
       const { title, ingrediens } = req.body
       const data = {

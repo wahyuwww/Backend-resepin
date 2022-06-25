@@ -5,7 +5,7 @@ const path = require('path')
 // const cloudinary = require('../helper/cloudinary')
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../public/video')
+    cb(null, './public/video')
   },
   filename: (req, file, cb) => {
     const nameFormat = `${Date.now()}-${file.fieldname}${path.extname(
@@ -42,56 +42,4 @@ const uploadMultiple = upload.fields([
   { name: 'video', maxCount: 10 },
   { name: 'image', maxCount: 10 }
 ])
-const uploadVideo = {
-  multipleUpload: (req, res, next) => {
-    // const multipleUpload = upload.fields([
-    //   { name: 'video', maxCount: 10 },
-    //   { name: 'image', maxCount: 10 }
-    // ])
-    uploadMultiple(req, res, async (err) => {
-      if (err) {
-        res.json({
-          message: err.message
-        })
-      } else {
-        try {
-          //   const image = req.files.map((file) => {
-          //     return `http://${req.get('host')}/img/${file.filename}`
-          //   })
-        } catch {
-          console.log(err)
-          // return commonHellper.response(res, null, err.message, 400)
-        } finally {
-          next()
-        }
-      }
-    })
-  }
-}
-const uploadImg = {
-  singleUpload: (req, res, next) => {
-    const singleUpload = upload.single('image')
-    singleUpload(req, res, (err) => {
-      if (err) {
-        res.json({
-          message: err.message
-        })
-      } else {
-        try {
-          req.body.image = req.file.filename
-        } catch {
-          console.log(err)
-          // return commonHellper.response(res, null, err.message, 400)
-        } finally {
-          next()
-        }
-      }
-    })
-  }
-}
-
-module.exports = {
-  uploadImg,
-  uploadVideo,
-  uploadMultiple
-}
+module.exports = uploadMultiple
