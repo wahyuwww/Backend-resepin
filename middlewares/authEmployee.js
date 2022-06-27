@@ -26,14 +26,6 @@ const protect = (req, res, next) => {
     }
   }
 }
-
-const isEmployee = (req, res, next) => {
-  if (req.decoded.role !== 'employee') {
-    return next(createError(400, 'employee only'))
-  }
-  next()
-}
 module.exports = {
-  protect,
-  isEmployee
+  protect
 }

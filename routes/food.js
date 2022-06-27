@@ -3,6 +3,7 @@ const Router = express.Router()
 const { foodController } = require('../controller/food')
 const uploadMultiple = require('../middlewares/uploadFile')
 // const upload = require('../middlewares/uploadFiles')
+// const { protect } = require('../middlewares/authEmployee')
 
 Router.get('/', foodController.getFoods)
   .get('/filter/', foodController.getFoodByFilter)

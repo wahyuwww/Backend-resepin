@@ -24,13 +24,23 @@ const foodController = {
       // console.log(req.files.image[0].filename);
       const gambars = req.files.image[0].path
       console.log(gambars)
-      const ress = await cloudinary.uploader.upload(gambars)
-      console.log(ress)
+      const ress = await cloudinary.uploader.upload(gambars, {
+        folder: 'resepin'
+      })
+      // console.log(ress)
+
+      const video = req.files.video[0].path
+      console.log(video)
+      const resVideo = await cloudinary.uploader.upload(video, {
+        folder: 'resepin',
+        resource_type: 'video'
+      })
+      console.log(resVideo)
       const { title, ingrediens } = req.body
       const data = {
         title,
         ingrediens,
-        video: gambarvid,
+        video: resVideo.url,
         image: ress.url
       }
       // console.log(
@@ -66,13 +76,18 @@ const foodController = {
       // console.log(req.file)
       const ress = await cloudinary.uploader.upload(gambars)
       // const gambar = JSON.stringify(gambarvid)
+      const video = req.files.video[0].path
+      const resVideo = await cloudinary.uploader.upload(video, {
+        folder: 'resepin',
+        resource_type: 'video'
+      })
       console.log(gambarvid)
       const idfood = req.params.id
       const { title, ingrediens } = req.body
       const data = {
         title,
         ingrediens,
-        video: gambarvid,
+        video: resVideo.url,
         image: ress.url,
         idfood
       }
