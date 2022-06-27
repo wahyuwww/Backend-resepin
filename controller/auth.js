@@ -42,7 +42,7 @@ const register = async (req, res, next) => {
 const activ = async (req, res, next) => {
   try {
     const token = req.params.token
-    const decoded = await jwt.verify(token, process.env.SECRET_KEY_JWT2)
+    const decoded = await jwt.verify(token, process.env.SECRET_KEY)
     console.log(decoded)
     const data = {
       active: 1,
