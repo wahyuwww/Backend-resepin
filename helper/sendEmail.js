@@ -8,7 +8,7 @@ const sendMail = async ({ email, fullname, role }) => {
   try {
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 465,
+      port: 587,
       secure: true,
       auth: {
         type: 'OAuth2',
@@ -17,17 +17,18 @@ const sendMail = async ({ email, fullname, role }) => {
         clientSecret: process.env.GMAIL_OAUTH_CLIENT_SECRET,
         refreshToken: process.env.GMAIL_OAUTH_REFRESH_TOKEN,
         accessToken: process.env.GMAIL_OAUTH_ACCESS_TOKEN,
-        expires: Number.parseInt(process.env.GMAIL_OAUTH_TOKEN_EXPIRE, 10)
+        expires: Number.parseInt(process.env.GMAIL_OAUTH_TOKEN_EXPIRE, 100)
       }
     })
     // create reusable transporter object using the default SMTP transport
     // const transporter = nodemailer.createTransport({
     //   host: 'smtp.gmail.com',
-    //   port: 465,
-    //   secure: true, // true for 465, false for other ports
+    //   port: 587,
+    //   secure: false,
+    //   requireTLS: true, // true for 465, false for other ports
     //   auth: {
-    //     user: 'wahyu.purwanto258@gmail.com', // generated ethereal user
-    //     pass: 'purwanto2508' // generated ethereal password
+    //     user: 'wahyu.aan2508@gmail.com', // generated ethereal user
+    //     pass: 'adaw2508' // generated ethereal password
     //   }
     // })
     const verifyOpts = {
