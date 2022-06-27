@@ -30,9 +30,14 @@ const sendMail = async ({ email, fullname, role }) => {
     //     pass: 'purwanto2508' // generated ethereal password
     //   }
     // })
-    const token = jwt.sign({ email, fullname, role }, process.env.SECRET_KEY, {
-      expiresIn: '24h'
-    })
+    const verifyOpts = {
+      expiresIn: '1h'
+    }
+    const token = jwt.sign(
+      { email, fullname, role },
+      process.env.SECRET_KEY_JWT,
+      verifyOpts
+    )
     // confirm.log(role);
     const info = await transporter.sendMail({
       from: '"Food Receiped" <wahyu.aan2508@gmail.com>',
