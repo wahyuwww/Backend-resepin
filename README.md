@@ -1,7 +1,7 @@
 <h1 align="center">Food Recipe App<br>RESTful API with Express.js</h1>
 
 # Introduction
-Food Recipe RESTful API is an API that allows users to read recipe information data from a database. The Food Recipe RESTful API also allows users to create, update, and delete recipe information to/from the database.
+Resepin RESTful API is an API that allows users to read recipe information data from a database. The Food Recipe RESTful API also allows users to create, update, and delete recipe information to/from the database.
 
 
 
