@@ -92,10 +92,16 @@ CLOUDINARY_API_SECRET = "secret key"
 | `sort` | `string` | **Required**. Your API key |
 | `page` | `number` | **Required**. Your API key |
 
-### Link Demo Aplikasi Backend
-```
-https://resepinaja.herokuapp.com
-```
+## Related Project
+
+:rocket: [`Backend Resepin`](https://github.com/wahyuwww/Resepin-Frontend)
+
+:rocket: [`Frontend Resepin`](https://github.com/wahyuwww/backend-resepin.git)
+
+:rocket: [`Web Service`](https://resepinaja.herokuapp.com/)
+
+:rocket: [`Demo Resepin`](https://resepin.vercel.app/)
+
 
 ### Link Rest Api Dokumentasion Postman
 ```
