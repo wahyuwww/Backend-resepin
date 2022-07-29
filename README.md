@@ -96,7 +96,7 @@ CLOUDINARY_API_SECRET = "secret key"
 
 :rocket: [`Backend Resepin`](https://github.com/wahyuwww/backend-resepin.git)
 
-:rocket: [`Frontend Resepin`](https://github.com/wahyuwww/Resepin-Frontend/tree/readme-new)
+:rocket: [`Frontend Resepin`](https://github.com/wahyuwww/Resepin-Frontend)
 
 :rocket: [`Web Service`](https://resepinaja.herokuapp.com/)
 
