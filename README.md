@@ -104,9 +104,9 @@ CLOUDINARY_API_SECRET = "secret key"
 
 
 ### Link Rest Api Dokumentasion Postman
-```
-https://documenter.getpostman.com/view/10953547/UyxbqpvR#e9db513a-091a-42dc-ac07-0fb218fec8ef
-```
+* [`Dokumentasi Postman`](https://documenter.getpostman.com/view/10953547/Uze1uiVR)
+
+
 ## Contact
 Wahyu Dwi Purwanto - [linkedin](https://www.linkedin.com/in/wahyu-dwi-purwanto/) - wahyu.aan2508@gmail.com
 
