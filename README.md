@@ -1,4 +1,17 @@
-<h1 align="center">Food Recipe App<br>RESTful API with Express.js</h1>
+<p align="center">
+
+  <h2 align="center">Food Recipe App<br>RESTful API with Express.js</h2>
+  <p align="center">
+    <image align="center" width="200" src='./public/video/logo images food.png' />
+  </p>
+
+  <p align="center">
+    <br />
+    <a href="https://github.com/wahyuwww/Backend-resepin"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://resepinaja.herokuapp.com/">View Demo</a>
+  </p>
+</p>
 
 # Introduction
 Resepin RESTful API is an API that allows users to read recipe information data from a database. The Food Recipe RESTful API also allows users to create, update, and delete recipe information to/from the database.
